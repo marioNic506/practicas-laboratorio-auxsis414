@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="relative py-10">
+    <div class="grid grid-cols-1 gap-5">
+        <h1 class="text-2xl title">
+            Ejericio 3
+        </h1>
+        <p class="text-center">
+            Escribe una función que calcule el factorial de un número dado.
+        </p>
+        <form id="miFormulario" class="border-t-8 border-[#007bff] p-4 rounded-xl shadow-md" onsubmit="sendForm(event)">
+            <label for="number">Number:</label>
+            <input type="number" name="number" id="number" required>
+            <br>
+            <button type="submit" style="
+                    background-color: var(--primary-color);
+                    color: white;
+                    border: none;
+                    padding: 10px;
+                    border-radius: 5px;
+                    cursor: pointer;
+                ">
+                Calcular factorial
+            </button>
+        </form>
+        <div class="border-t-8 border-[#007bff] border p-4 rounded-xl h-auto w-[90%] mx-auto py-10" id="app"></div>
+    </div>
+    <div class="absolute inset-x-0 top-0 -z-10 transform-gpu overflow-hidden blur-3xl" aria-hidden="true">
+        <div class="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-pink-500 to-violet-500
+                   sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
+            style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%);" />
+    </div>
+    <div class="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]"
+        aria-hidden="true">
+        <div class="relative left-[calc(50%+3rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 bg-gradient-to-tr from-[#06b6d4] to-[#0c4a6e]
+                  sm:left-[calc(50%+36rem)] sm:w-[72.1875rem]"
+            style="clip-path:polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%);" />
+    </div>
+    <script>
+        const app = document.getElementById('app');
+
+
+        const sendForm = (e) => {
+            e.preventDefault();
+            const number = e.target.number.value;
+            console.log(number);
+            calculateFactorial(number);
+        }
+
+        function calculateFactorial(number) {
+            const container = document.createElement('div');
+            container.classList.add('flex', 'justify-center', 'items-center', 'gap-2');
+            const factorial = (n) => {
+                 if (n === 0 || n === 1) return 1;
+                    return n * factorial(n - 1);
+    };            const numberFactorial = factorial(number);
+            console.log(numberFactorial);
+
+            container.appendChild(innerText(number, numberFactorial));
+            app.appendChild(container);
+        }
+
+        function innerText(number, numberFactorial) {
+
+            const container = document.createElement('div');
+            container.classList.add('flex', 'justify-center', 'items-center', 'gap-2');
+            container.innerHTML = `
+                <p class="text-[#007bff] border border-[#007bff] p-4 rounded-xl shadow-md">${number}</p>
+                &rarr;
+                <p class="text-[#007bff] border border-[#007bff] p-4 rounded-xl shadow-md">${numberFactorial}</p>
+            `;
+            return container;
+        }
+
+        function factorial(number) {
+            
+        }
+    </script>
+</body>
+
+</html>
